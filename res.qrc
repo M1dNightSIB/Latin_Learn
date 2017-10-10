@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/data">
         <file>words.txt</file>
+        <file>test_pic.png</file>
     </qresource>
 </RCC>

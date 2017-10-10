@@ -26,15 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    startwindow.cpp
+    startwindow.cpp \
+    wordswindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    startwindow.h
+    startwindow.h \
+    wordswindow.h
 
 FORMS += \
         mainwindow.ui \
-    startwindow.ui
+    startwindow.ui \
+    wordswindow.ui
 
 CONFIG += mobility
 MOBILITY = 
