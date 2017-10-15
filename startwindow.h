@@ -1,7 +1,7 @@
 #ifndef STARTWINDOW_H
 #define STARTWINDOW_H
 
-#include "mainwindow.h"
+#include "trainingwindow.h"
 #include "wordswindow.h"
 #include <QMainWindow>
 
@@ -19,12 +19,12 @@ public:
 
 private:
     Ui::StartWindow *ui;
-    MainWindow *train;
-    WordsWindow *words;
+    trainingwindow *training;
+    WordsWindow *word_book;
 
 private slots:
-    void train_mode();
-    void words_mode();
+    void trainwindow_mode();
+    void word_book_window();
 };
 
 #endif // STARTWINDOW_H

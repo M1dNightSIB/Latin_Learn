@@ -6,20 +6,20 @@ StartWindow::StartWindow(QWidget *parent) :
     ui(new Ui::StartWindow)
 {
     ui->setupUi(this);
-    connect(ui->train_btn, SIGNAL(clicked(bool)), this, SLOT(train_mode()));
-    connect(ui->word_btn, SIGNAL(clicked(bool)), this, SLOT(words_mode()));
+    connect(ui->train_btn, SIGNAL(clicked(bool)), this, SLOT(trainwindow_mode()));
+    connect(ui->word_btn, SIGNAL(clicked(bool)), this, SLOT(word_book_window()));
 }
 
-void StartWindow::train_mode()
+void StartWindow::trainwindow_mode()
 {
-    train = new MainWindow;
-    train->show();
+    training = new trainingwindow;
+    training->show();
 }
 
-void StartWindow::words_mode()
+void StartWindow::word_book_window()
 {
-    words = new WordsWindow;
-    words->show();
+    word_book = new WordsWindow;
+    word_book->show();
 }
 
 StartWindow::~StartWindow()

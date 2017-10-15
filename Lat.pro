@@ -27,17 +27,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     startwindow.cpp \
-    wordswindow.cpp
+    wordswindow.cpp \
+    trainingwindow.cpp \
+    wordenter.cpp
 
 HEADERS += \
         mainwindow.h \
     startwindow.h \
-    wordswindow.h
+    wordswindow.h \
+    trainingwindow.h \
+    wordenter.h
 
 FORMS += \
         mainwindow.ui \
     startwindow.ui \
-    wordswindow.ui
+    wordswindow.ui \
+    trainingwindow.ui \
+    wordenter.ui
 
 CONFIG += mobility
 MOBILITY = 
