@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "mainwindow.h"
 #include "wordenter.h"
+#include "latinrus.h"
 #include "wordswindow.h"
 
 namespace Ui {
@@ -22,11 +23,13 @@ private:
     Ui::trainingwindow *ui;
     MainWindow *sprint;
     WordEnter *wEnter;
+    LatinRus *lat_rus;
 
 private slots:
     void back();
     void sprint_mode();
     void wEnter_mode();
+    void latin_rus_mode();
 };
 
 #endif // TRAININGWINDOW_H

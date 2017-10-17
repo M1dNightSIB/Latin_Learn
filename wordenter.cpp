@@ -57,13 +57,13 @@ void WordEnter::check_result()
     {
         ui->result->setText("Верно");
         ui->result->setPalette(right);
-        QTimer::singleShot(1200, this, SLOT(set_next_word()));
+        QTimer::singleShot(SINGLE_SHOT_DELAY, this, SLOT(set_next_word()));
     }
     else
     {
         ui->result->setText("Не верно");
         ui->result->setPalette(not_right);
-        QTimer::singleShot(1200, this, SLOT(set_next_word()));
+        QTimer::singleShot(SINGLE_SHOT_DELAY, this, SLOT(set_next_word()));
     }
 }
 

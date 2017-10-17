@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QDebug>
 
+#define SINGLE_SHOT_DELAY 1200
 
 namespace Ui {
 class WordEnter;
