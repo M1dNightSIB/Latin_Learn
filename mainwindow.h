@@ -40,6 +40,7 @@ private:
 
 
 private slots:
+    void back();
     void timer_tick();
     void btn_click();
     void check_ans1();

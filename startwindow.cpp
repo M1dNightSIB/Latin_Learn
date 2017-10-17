@@ -16,6 +16,7 @@ void StartWindow::trainwindow_mode()
     training->show();
 }
 
+
 void StartWindow::word_book_window()
 {
     word_book = new WordsWindow;

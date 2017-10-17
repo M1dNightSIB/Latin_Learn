@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->ans_2, SIGNAL(clicked(bool)), this, SLOT(check_ans2()));
     connect(ui->ans_3, SIGNAL(clicked(bool)), this, SLOT(check_ans3()));
     connect(ui->ans_4, SIGNAL(clicked(bool)), this, SLOT(check_ans4()));
+    connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     time = QString("%1:%2").arg(sec_counter, 2).arg(millisec_counter, 2);
     pal_btn = new QPalette;
@@ -42,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent) :
     set_buttons();
 }
 
+void MainWindow::back()
+{
+    this->close();
+}
 
 void MainWindow::set_buttons()
 {

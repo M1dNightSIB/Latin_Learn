@@ -27,6 +27,7 @@ private:
     QVector<QString> latin, rus;
 
 private slots:
+    void back();
     void select_latin_item();
     void select_rus_item();
 

@@ -12,6 +12,7 @@ WordsWindow::WordsWindow(QWidget *parent) :
 
     connect(ui->latin_list, SIGNAL(currentRowChanged(int)), this, SLOT(select_latin_item()));
     connect(ui->rus_list, SIGNAL(currentRowChanged(int)), this, SLOT(select_rus_item()));
+    connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QFile file(":/data/words.txt");
     file.open(QFile::ReadOnly);
@@ -34,6 +35,11 @@ WordsWindow::WordsWindow(QWidget *parent) :
     }
 
     file.close();
+}
+
+void WordsWindow::back()
+{
+    this->close();
 }
 
 void WordsWindow::select_latin_item()

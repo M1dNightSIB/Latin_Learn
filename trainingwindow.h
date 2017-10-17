@@ -24,6 +24,7 @@ private:
     WordEnter *wEnter;
 
 private slots:
+    void back();
     void sprint_mode();
     void wEnter_mode();
 };

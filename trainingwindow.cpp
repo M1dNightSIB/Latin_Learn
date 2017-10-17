@@ -8,12 +8,18 @@ trainingwindow::trainingwindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->sprint, SIGNAL(clicked(bool)), this, SLOT(sprint_mode()));
     connect(ui->enter_word, SIGNAL(clicked(bool)), this, SLOT(wEnter_mode()));
+    connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
 }
 
 void trainingwindow::sprint_mode()
 {
     sprint = new MainWindow;
     sprint->show();
+}
+
+void trainingwindow::back()
+{
+    this->close();
 }
 
 void trainingwindow::wEnter_mode()
