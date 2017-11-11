@@ -7,8 +7,10 @@ WordEnter::WordEnter(QWidget *parent) :
 {
     ui->setupUi(this);
     QFile file(":/data/words.txt");
+
     file.open(QFile::ReadOnly);
     connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
+
     QString file_data = file.readAll();
 
     QStringList list = file_data.split("\n");
@@ -18,6 +20,7 @@ WordEnter::WordEnter(QWidget *parent) :
     {
         words.push_back(list[i]);
     }
+
     set_next_word();
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
     connect(ui->accept, SIGNAL(clicked(bool)), this, SLOT(check_result()));
