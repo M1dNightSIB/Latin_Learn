@@ -30,7 +30,8 @@ SOURCES += \
     wordswindow.cpp \
     trainingwindow.cpp \
     wordenter.cpp \
-    latinrus.cpp
+    latinrus.cpp \
+    rus_lat.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     wordswindow.h \
     trainingwindow.h \
     wordenter.h \
-    latinrus.h
+    latinrus.h \
+    rus_lat.h
 
 FORMS += \
         mainwindow.ui \
@@ -46,7 +48,8 @@ FORMS += \
     wordswindow.ui \
     trainingwindow.ui \
     wordenter.ui \
-    latinrus.ui
+    latinrus.ui \
+    rus_lat.ui
 
 CONFIG += mobility
 MOBILITY = 

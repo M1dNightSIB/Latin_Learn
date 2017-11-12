@@ -10,6 +10,7 @@ trainingwindow::trainingwindow(QWidget *parent) :
     connect(ui->enter_word, SIGNAL(clicked(bool)), this, SLOT(wEnter_mode()));
     connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
     connect(ui->lat_rus, SIGNAL(clicked(bool)), this, SLOT(latin_rus_mode()));
+    connect(ui->rus_lat, SIGNAL(clicked(bool)), this, SLOT(rus_latin_mode()));
 }
 
 void trainingwindow::sprint_mode()
@@ -33,6 +34,12 @@ void trainingwindow::wEnter_mode()
 {
     wEnter = new WordEnter;
     wEnter->show();
+}
+
+void trainingwindow::rus_latin_mode()
+{
+    rus_lat = new Rus_Lat;
+    rus_lat->show();
 }
 
 trainingwindow::~trainingwindow()

@@ -1,12 +1,12 @@
-#include "latinrus.h"
-#include "ui_latinrus.h"
+#include "rus_lat.h"
+#include "ui_rus_lat.h"
 
-LatinRus::LatinRus(QWidget *parent) :
+Rus_Lat::Rus_Lat(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::LatinRus)
+    ui(new Ui::Rus_Lat)
 {
     ui->setupUi(this);
-    connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
+    connect(ui->go_back, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QFile file(":/data/words.txt");
     file.open(QFile::ReadOnly);
@@ -34,38 +34,44 @@ LatinRus::LatinRus(QWidget *parent) :
     pal_clk = new QPalette;
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
     generate_quest();
-    connect(ui->ans_1, SIGNAL(clicked(bool)), this, SLOT(check_ans1()));
-    connect(ui->ans_2, SIGNAL(clicked(bool)), this, SLOT(check_ans2()));
-    connect(ui->ans_3, SIGNAL(clicked(bool)), this, SLOT(check_ans3()));
-    connect(ui->ans_4, SIGNAL(clicked(bool)), this, SLOT(check_ans4()));
+    connect(ui->ans_9, SIGNAL(clicked(bool)), this, SLOT(check_ans1()));
+    connect(ui->ans_10, SIGNAL(clicked(bool)), this, SLOT(check_ans2()));
+    connect(ui->ans_11, SIGNAL(clicked(bool)), this, SLOT(check_ans3()));
+    connect(ui->ans_12, SIGNAL(clicked(bool)), this, SLOT(check_ans4()));
 }
 
-void LatinRus::generate_quest()
+
+void Rus_Lat::back()
+{
+    this->close();
+}
+
+void Rus_Lat::generate_quest()
 {
     pal_btn->setColor(QPalette::Window, Qt::white);
-    ui->ans_1->setPalette(*pal_btn);
-    ui->ans_2->setPalette(*pal_btn);
-    ui->ans_3->setPalette(*pal_btn);
-    ui->ans_4->setPalette(*pal_btn);
+    ui->ans_9->setPalette(*pal_btn);
+    ui->ans_10->setPalette(*pal_btn);
+    ui->ans_11->setPalette(*pal_btn);
+    ui->ans_12->setPalette(*pal_btn);
 
     lat_index = qrand() % (latin.size() - 1);
-    ui->word->setText(latin[lat_index]);
+    ui->word_3->setText(rus[lat_index]);
 
     btn_ans_index = qrand() % 4;
 
     switch(btn_ans_index)
     {
     case 0:
-        ui->ans_1->setText(rus[lat_index]);
+        ui->ans_9->setText(latin[lat_index]);
         break;
     case 1:
-        ui->ans_2->setText(rus[lat_index]);
+        ui->ans_10->setText(latin[lat_index]);
         break;
     case 2:
-        ui->ans_3->setText(rus[lat_index]);
+        ui->ans_11->setText(latin[lat_index]);
         break;
     case 3:
-        ui->ans_4->setText(rus[lat_index]);
+        ui->ans_12->setText(latin[lat_index]);
         break;
     }
 
@@ -73,10 +79,10 @@ void LatinRus::generate_quest()
 
     while(1)
     {
-        trash1 = qrand() %(rus.size() - 1);
-        trash2 = qrand() % (rus.size() - 1);
-        trash3 = qrand() % (rus.size() - 1);
-        trash4 = qrand() % (rus.size() - 1);
+        trash1 = qrand() %(latin.size() - 1);
+        trash2 = qrand() % (latin.size() - 1);
+        trash3 = qrand() % (latin.size() - 1);
+        trash4 = qrand() % (latin.size() - 1);
 
         if(trash1 != lat_index && trash2 != lat_index && trash3 != lat_index && trash4 != lat_index)
         {
@@ -96,40 +102,39 @@ void LatinRus::generate_quest()
         switch (i)
         {
         case 0:
-            ui->ans_1->setText(rus[trash1]);
+            ui->ans_9->setText(latin[trash1]);
             break;
         case 1:
-            ui->ans_2->setText(rus[trash2]);
+            ui->ans_10->setText(latin[trash2]);
             break;
         case 2:
-            ui->ans_3->setText(rus[trash3]);
+            ui->ans_11->setText(latin[trash3]);
             break;
         case 3:
-            ui->ans_4->setText(rus[trash4]);
+            ui->ans_12->setText(latin[trash4]);
             break;
         default:
             break;
         }
     }
-
 }
 
-void LatinRus::set_right(int ans)
+void Rus_Lat::set_right(int ans)
 {
     pal_btn->setColor(QPalette::Window, Qt::red);
     switch(ans)
     {
     case 0:
-        ui->ans_1->setPalette(*pal_btn);
+        ui->ans_9->setPalette(*pal_btn);
         break;
     case 1:
-        ui->ans_2->setPalette(*pal_btn);
+        ui->ans_10->setPalette(*pal_btn);
         break;
     case 2:
-        ui->ans_3->setPalette(*pal_btn);
+        ui->ans_11->setPalette(*pal_btn);
         break;
     case 3:
-        ui->ans_4->setPalette(*pal_btn);
+        ui->ans_12->setPalette(*pal_btn);
         break;
     default:
         break;
@@ -139,16 +144,16 @@ void LatinRus::set_right(int ans)
     switch (btn_ans_index)
     {
     case 0:
-        ui->ans_1->setPalette(*pal_btn);
+        ui->ans_9->setPalette(*pal_btn);
         break;
     case 1:
-        ui->ans_2->setPalette(*pal_btn);
+        ui->ans_10->setPalette(*pal_btn);
         break;
     case 2:
-        ui->ans_3->setPalette(*pal_btn);
+        ui->ans_11->setPalette(*pal_btn);
         break;
     case 3:
-        ui->ans_4->setPalette(*pal_btn);
+        ui->ans_12->setPalette(*pal_btn);
         break;
     default:
         break;
@@ -158,36 +163,31 @@ void LatinRus::set_right(int ans)
 
 }
 
-void LatinRus::check_ans1()
+void Rus_Lat::check_ans1()
 {
     int num = 0;
     set_right(num);
 }
 
-void LatinRus::check_ans2()
+void Rus_Lat::check_ans2()
 {
     int num = 1;
     set_right(num);
 }
 
-void LatinRus::check_ans3()
+void Rus_Lat::check_ans3()
 {
     int num = 2;
     set_right(num);
 }
 
-void LatinRus::check_ans4()
+void Rus_Lat::check_ans4()
 {
     int num = 3;
     set_right(num);
 }
 
-void LatinRus::back()
-{
-    this->close();
-}
-
-LatinRus::~LatinRus()
+Rus_Lat::~Rus_Lat()
 {
     delete ui;
 }
