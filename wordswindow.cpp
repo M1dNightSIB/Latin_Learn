@@ -8,11 +8,12 @@ WordsWindow::WordsWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->latin_list->setDragEnabled(false);
-    ui->rus_list->setDragEnabled(false);
 
-    connect(ui->latin_list, SIGNAL(currentRowChanged(int)), this, SLOT(select_latin_item()));
-    connect(ui->rus_list, SIGNAL(currentRowChanged(int)), this, SLOT(select_rus_item()));
+
     connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
+    connect(ui->latin_list, SIGNAL(clicked(QModelIndex)), this, SLOT(select_item()));
+    connect(ui->save_btn, SIGNAL(clicked(bool)), this, SLOT(change_selected_word()));
+    connect(ui->del_btn, SIGNAL(clicked(bool)), this, SLOT(delete_selected_word()));
 
     QFile file(":/data/words.txt");
     file.open(QFile::ReadOnly);
@@ -26,15 +27,72 @@ WordsWindow::WordsWindow(QWidget *parent) :
     {
         if(i % 2 == 0)
         {
-            ui->latin_list->addItem(list[i]);
+            latin.push_back(list[i]);
         }
         else if(i % 2 != 0)
         {
-            ui->rus_list->addItem(list[i]);
+            rus.push_back(list[i]);
         }
     }
-
     file.close();
+
+    push_to_list();
+}
+
+void WordsWindow::select_item()
+{
+    if(select_flag == 0 || ui->latin_list->currentRow() != index)
+    {
+        select_flag = 1;
+        index = ui->latin_list->currentRow();
+        ui->latin_edit->setText(latin[index]);
+        ui->rus_edit->setText(rus[index]);
+    }
+    else if(select_flag == 1)
+    {
+        select_flag = 0;
+        ui->latin_list->item(index)->setSelected(false);
+        ui->latin_edit->clear();
+        ui->rus_edit->clear();
+    }
+}
+
+void WordsWindow::push_to_list()
+{
+    ui->latin_list->clear();
+    for(int i = 0; i < latin.size(); i++)
+    {
+        QString buf = latin[i] + " - " + rus[i];
+        ui->latin_list->addItem(buf);
+    }
+}
+
+void WordsWindow::delete_selected_word()
+{
+    latin.erase(latin.begin() + index);
+    rus.erase(rus.begin() + index);
+
+    ui->latin_edit->clear();
+    ui->rus_edit->clear();
+
+    push_to_list();
+    select_flag = 0;
+}
+
+void WordsWindow::change_selected_word()
+{
+    QString latin_from_vec, rus_from_vec;
+    latin_from_vec = ui->latin_edit->text();
+    rus_from_vec = ui->rus_edit->text();
+
+    latin[index] = latin_from_vec;
+    rus[index] = rus_from_vec;
+
+    ui->latin_edit->clear();
+    ui->rus_edit->clear();
+
+    push_to_list();
+    select_flag = 0;
 }
 
 void WordsWindow::back()
@@ -42,22 +100,6 @@ void WordsWindow::back()
     this->close();
 }
 
-void WordsWindow::select_latin_item()
-{
-    int counter = 0;
-    for(int i = 0; i < ui->latin_list->count(); i++)
-    {
-        if(ui->latin_list->item(i)->isSelected())
-            break;
-        counter++;
-    }
-
-    qDebug() << counter;
-}
-
-void WordsWindow::select_rus_item()
-{
-}
 
 WordsWindow::~WordsWindow()
 {
