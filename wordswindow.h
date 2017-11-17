@@ -28,6 +28,7 @@ private:
     int index = -1;
     void push_to_list();
     int select_flag = 0;
+    void write_to_file();
 
 private slots:
     void  select_item();

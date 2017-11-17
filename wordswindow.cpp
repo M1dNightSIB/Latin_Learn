@@ -77,6 +77,8 @@ void WordsWindow::delete_selected_word()
 
     push_to_list();
     select_flag = 0;
+
+    write_to_file();
 }
 
 void WordsWindow::change_selected_word()
@@ -93,6 +95,20 @@ void WordsWindow::change_selected_word()
 
     push_to_list();
     select_flag = 0;
+
+    write_to_file();
+}
+
+void WordsWindow::write_to_file() // все хуево
+{
+    QFile file(":/data/words.txt");
+    file.open(QFile::WriteOnly | QIODevice::Text);
+    QTextStream stream(&file);
+    for(int i = 0; i < latin.size(); i++)
+    {
+        stream << latin[i] << '\n' << rus[i] << '\n';
+    }
+    file.close();
 }
 
 void WordsWindow::back()
