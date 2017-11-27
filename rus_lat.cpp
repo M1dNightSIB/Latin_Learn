@@ -34,6 +34,7 @@ Rus_Lat::Rus_Lat(QWidget *parent) :
     pal_clk = new QPalette;
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
     generate_quest();
+
     connect(ui->ans_9, SIGNAL(clicked(bool)), this, SLOT(check_ans1()));
     connect(ui->ans_10, SIGNAL(clicked(bool)), this, SLOT(check_ans2()));
     connect(ui->ans_11, SIGNAL(clicked(bool)), this, SLOT(check_ans3()));
