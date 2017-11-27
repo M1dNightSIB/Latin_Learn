@@ -227,6 +227,7 @@ void MainWindow::set_right(int ans)
     }
     else
     {
+        ui->score_multi_lbl->setText(QString("x %1").arg(multi));
         scores += DEF_SCORE * multi;
         multi += 0.25;
         ui->scores->display((int)scores);
