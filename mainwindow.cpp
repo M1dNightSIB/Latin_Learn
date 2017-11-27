@@ -156,6 +156,7 @@ int MainWindow::check_timer()
     if(sec_counter == 0 && millisec_counter == 0)
     {
         timer.stop();
+        QMessageBox::information(this, "Время вышло", QString("Ваши очки:\n  %1\n Ну шо, реванш?").arg((int)scores), QMessageBox::No, QMessageBox::Yes);
         return 0;
     }
     else
@@ -174,10 +175,13 @@ void MainWindow::btn_click()
     ui->quest->setText("МИНУС МАТЬ");
     */
 }
+
 void MainWindow::set_right(int ans)
 {
     pal_btn->setColor(QPalette::Window, Qt::red);
 
+    if(!flag)
+    {
     switch (ans)
     {
     case 0:
@@ -195,7 +199,7 @@ void MainWindow::set_right(int ans)
     default:
         break;
     }
-
+    }
     pal_btn->setColor(QPalette::Window, Qt::green);
     switch (btn_ans_index)
     {
@@ -218,9 +222,15 @@ void MainWindow::set_right(int ans)
     if(ans != btn_ans_index)
     {
         timer.stop();
+        flag = 1;
+        multi = 1;
     }
     else
     {
+        scores += DEF_SCORE * multi;
+        multi += 0.25;
+        ui->scores->display((int)scores);
+        flag = 0;
         timer.start(10);
         set_buttons();
     }

@@ -155,7 +155,6 @@ void LatinRus::set_right(int ans)
     }
 
     QTimer::singleShot(SINGLE_SHOT_DELAY, this, SLOT(generate_quest()));
-
 }
 
 void LatinRus::check_ans1()

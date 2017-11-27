@@ -8,8 +8,9 @@
 #include <QString>
 #include <QVector>
 #include <QFile>
-
+#include <QMessageBox>
 #define DELAY 10
+#define DEF_SCORE 10
 
 namespace Ui {
 class MainWindow;
@@ -33,8 +34,9 @@ private:
 
     QVector <QString> latin, rus;
     int check_timer();
-    int index;
+    int index, flag = 0;
     int btn_ans_index;
+    double multi = 1.0, scores = 0;
     void set_buttons();
     void set_right(int ans);
 

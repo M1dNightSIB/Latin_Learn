@@ -32,16 +32,6 @@
          <number>30</number>
         </property>
         <item row="0" column="1">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="res.qrc">:/data/test_pic.png</pixmap>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -178,8 +168,6 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
