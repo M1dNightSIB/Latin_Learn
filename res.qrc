@@ -1,6 +1,16 @@
 <RCC>
     <qresource prefix="/data">
         <file>words.txt</file>
-        <file>test_pic.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>images/wordbook.png</file>
+        <file>images/traning.png</file>
+        <file>images/statistic.png</file>
+        <file>images/logo.png</file>
+        <file>images/bg.png</file>
+        <file>images/tr_1.png</file>
+        <file>images/st_1.png</file>
+        <file>style/style.qss</file>
+        <file>images/wo.png</file>
     </qresource>
 </RCC>

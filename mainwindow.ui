@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>515</width>
+    <width>540</width>
     <height>500</height>
    </rect>
   </property>
@@ -155,6 +155,9 @@
       </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="back_btn">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="text">
          <string>Назад</string>
         </property>

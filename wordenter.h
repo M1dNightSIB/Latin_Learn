@@ -29,7 +29,6 @@ private:
     int index;
     QVector <QString> words;
     QPalette right, not_right, deflt;
-
 private slots:
     void back();
     void check_result();

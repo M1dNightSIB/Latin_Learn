@@ -6,7 +6,7 @@ Rus_Lat::Rus_Lat(QWidget *parent) :
     ui(new Ui::Rus_Lat)
 {
     ui->setupUi(this);
-    connect(ui->go_back, SIGNAL(clicked(bool)), this, SLOT(back()));
+    connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QFile file(":/data/words.txt");
     file.open(QFile::ReadOnly);

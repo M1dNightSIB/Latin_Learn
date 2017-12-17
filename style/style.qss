@@ -1,0 +1,162 @@
+/*QPushButton
+{
+    color: white;
+    background-color: red;
+    border-style: outset;
+    border-width: 0px;
+    border-radius: 48px;
+    border-color: beige;
+    min-width: 128px;
+    min-height: 128px;
+    max-width: 256px;
+    max-height: 256px;
+    padding: 6px;
+    float: right;
+    font-size: 70%;
+
+}
+
+QPushButton#word_btn
+{
+	image: url(:/images/slovar.png);
+	subcontrol-origin: padding;
+	background-color: none;
+
+	border-image: url(:/images/slovar.png) 0 0 0 0 stretch stretch;
+}
+
+
+
+QMainWindow
+{
+    background-image: url(:/images/bg.png);
+
+}
+
+QPushButton#word_btn, #train_btn, #stat_btn
+{
+    border-image: url(:/images/slovar.png) 0 0 0 0 stretch stretch;
+    background-repeat: no-repeat;
+    border: none;
+    width: 256px;
+    height: 256px;
+    max-width: 256px;
+}
+
+QPushButton#back_btn, #go_back
+{
+    background-color: red;
+}
+
+QLable#label
+{
+    width: 512px;
+    height: 512px;
+}
+
+#word_btn
+{
+	border-image: url(:/images/wordbook.png);
+	background: none;
+	border: none;
+	background-repeat: none;	
+
+
+}
+
+*/
+
+#start_logo
+{
+   	image: url(:/images/logo.png);
+   	border: none;
+    min-height: 312px;
+    min-width: 312px;
+    
+}
+
+
+#train_btn
+{
+    image: url(:/images/tr_1.png);
+	border: none;
+    background-color: #e64a19;
+
+}
+
+#st_btn
+{
+    image: url(:/images/st_1.png);
+	border: none;
+    background-color: #afb42b;
+
+}
+
+
+
+#word_btn
+{
+
+    image: url(:/images/wo.png);
+    border: none;
+    background-color: #00f579;
+  	padding: 250px;
+}
+
+#st_btn, #train_btn
+{
+	padding: 60px;
+}
+
+#trainingwindow
+{
+	background-color: #e64a19;
+}
+
+#WordsWindow, #words_label
+{
+	background-color: #00f579;
+}
+
+QPushButton#back_btn, #enter_word, #lat_rus, #rus_lat, #sprint
+{
+	border: 2px solid black;
+	border-radius: 25px;
+	background-color: white;
+	padding: 30px 45px;
+	font-weight: bold;
+}
+
+QPushButton#enter_word, #lat_rus, #rus_lat, #sprint
+{
+	border: 2px solid black;
+	border-radius: 25px;
+	background-color: white;
+	padding: 50px;
+	font-weight: bold;
+	font-size: 24pt;
+}
+
+#tr_label
+{
+	font-size: 34pt;
+	background-color: none;
+}
+
+#latin_list
+{
+	font-size: 22pt;
+	padding-left: 30px;
+	padding-top: 30px
+	border-radius: 25px;
+
+}
+/*  
+	background-image: url(:/images/wo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-origin: content;
+    background-clip: padding;
+    background-attachment: fixed;
+  */

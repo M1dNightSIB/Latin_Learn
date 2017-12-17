@@ -1,6 +1,6 @@
 #include "latinrus.h"
 #include "ui_latinrus.h"
-
+//конструктор
 LatinRus::LatinRus(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LatinRus)

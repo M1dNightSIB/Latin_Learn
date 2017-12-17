@@ -131,7 +131,7 @@
       </spacer>
      </item>
      <item row="0" column="0">
-      <widget class="QPushButton" name="go_back">
+      <widget class="QPushButton" name="back_btn">
        <property name="text">
         <string>Назад</string>
        </property>

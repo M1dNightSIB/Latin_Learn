@@ -12,8 +12,8 @@ WordsWindow::WordsWindow(QWidget *parent) :
 
     connect(ui->back_btn, SIGNAL(clicked(bool)), this, SLOT(back()));
     connect(ui->latin_list, SIGNAL(clicked(QModelIndex)), this, SLOT(select_item()));
-    connect(ui->save_btn, SIGNAL(clicked(bool)), this, SLOT(change_selected_word()));
-    connect(ui->del_btn, SIGNAL(clicked(bool)), this, SLOT(delete_selected_word()));
+    //connect(ui->save_btn, SIGNAL(clicked(bool)), this, SLOT(change_selected_word()));
+   // connect(ui->del_btn, SIGNAL(clicked(bool)), this, SLOT(delete_selected_word()));
 
     QFile file(":/data/words.txt");
     file.open(QFile::ReadOnly);
@@ -38,7 +38,7 @@ WordsWindow::WordsWindow(QWidget *parent) :
 
     push_to_list();
 }
-
+/*
 void WordsWindow::select_item()
 {
     if(select_flag == 0 || ui->latin_list->currentRow() != index)
@@ -56,7 +56,7 @@ void WordsWindow::select_item()
         ui->rus_edit->clear();
     }
 }
-
+*/
 void WordsWindow::push_to_list()
 {
     ui->latin_list->clear();
@@ -66,7 +66,7 @@ void WordsWindow::push_to_list()
         ui->latin_list->addItem(buf);
     }
 }
-
+/*
 void WordsWindow::delete_selected_word()
 {
     latin.erase(latin.begin() + index);
@@ -98,8 +98,9 @@ void WordsWindow::change_selected_word()
 
     write_to_file();
 }
-
-void WordsWindow::write_to_file() // все хуево
+*/
+/*
+void WordsWindow::write_to_file() //запись в файл
 {
     QFile file(":/data/words.txt");
     file.open(QFile::WriteOnly | QIODevice::Text);
@@ -110,7 +111,7 @@ void WordsWindow::write_to_file() // все хуево
     }
     file.close();
 }
-
+*/
 void WordsWindow::back()
 {
     this->close();
